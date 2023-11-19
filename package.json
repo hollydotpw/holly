@@ -1,0 +1,44 @@
+{
+  "name": "holly",
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "0.3.0",
+    "preact": "^10.19.2",
+    "prismjs": "^1.29.0",
+    "purr": "link:purr",
+    "wouter-preact": "^2.12.1"
+  },
+  "devDependencies": {
+    "@types/prismjs": "^1.26.3",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
+    "eslint": "^8.54.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "typescript": "^5.2.2",
+    "wrangler": "^3.16.0"
+  },
+  "x": [
+    {
+      "name": "holly-web",
+      "preset": "browser-preact",
+      "entry": "./src/entry.tsx"
+    },
+    {
+      "name": "holly-worker",
+      "preset": "webworker-preact",
+      "entry": "./src/entry-worker.tsx"
+    },
+    {
+      "name": "holly-runner",
+      "preset": "bun",
+      "watch": [
+        "./static/data/article/*.md"
+      ],
+      "entry": "./src/runner.ts"
+    }
+  ]
+}

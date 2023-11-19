@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Holly</title>
+    <link>https://holly.pw</link>
+    <description>The grand blog where my opinions belong.</description>
+    <item>
+  <title>Mineable ERC-20 Tokens: Using proof-of-work for good</title>
+  <link>https://holly.pw/$/mineable-erc-20-tokens-using-proof-of-work-for-good</link>
+  <guid>https://holly.pw/$/mineable-erc-20-tokens-using-proof-of-work-for-good</guid>
+  <description>I created a ERC-20 token capable of being minted by resolving proof-of-work challenges. By doing that, multiple things back the value of the token: the community and the cost of electricity + gas. And of course, we are wasting electricity just to give value to a token.</description>
+  <pubDate>2022-06-22T23:11:24.582Z</pubDate>
+</item><item>
+  <title>This is my new blog</title>
+  <link>https://holly.pw/$/this-is-my-new-blog</link>
+  <guid>https://holly.pw/$/this-is-my-new-blog</guid>
+  <description>After 4 years without a blog I decided to make a new one from scratch, to fill my blogless void. In this story I'm going to talk about: my history with blogs, what is the propuse of it and what technologies I used.</description>
+  <pubDate>2022-02-26T04:08:00.925Z</pubDate>
+</item>
+  </channel>
+</rss>

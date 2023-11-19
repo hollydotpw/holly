@@ -1,0 +1,12 @@
+@use 'style/mixin';
+
+.container {
+  width: var(--container);
+  margin: 0 auto;
+  height: 100%;
+
+  @include mixin.mobile {
+    width: 100%;
+    margin: 0;
+  }
+}

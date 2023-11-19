@@ -1,0 +1,22 @@
+@use 'style/mixin';
+
+.label {
+  display: flex;
+  background: var(--mercury);
+  padding: 4px 10px;
+
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 3px;
+
+  img {
+    margin-right: 5px;
+    image-rendering: pixelated;
+  }
+
+  @include mixin.mobile {
+    padding: 2px 5px;
+    font-size: 10px;
+  }
+}
