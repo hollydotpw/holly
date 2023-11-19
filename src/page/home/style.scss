@@ -1,0 +1,11 @@
+@use 'style/mixin';
+
+.container {
+  // padding: 0 24px;
+  // border-left: 1px solid var(--mercury);
+  // border-right: 1px solid var(--mercury);
+  padding-top: 24px;
+  @include mixin.mobile {
+    padding-top: 10px;
+  }
+}

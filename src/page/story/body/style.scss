@@ -1,0 +1,214 @@
+@use 'style/mixin';
+
+.body {
+  font-size: 20px;
+  letter-spacing: -0.003em;
+  line-height: 1.58;
+  overflow: hidden;
+  word-break: break-word;
+  flex: 1;
+  @include mixin.mobile {
+    font-size: 18px;
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    margin-block: 0;
+    font-weight: revert;
+    margin-top: 30px;
+    &[class^='h'] {
+      margin-top: 6px !important;
+    }
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 20px;
+  }
+
+  blockquote {
+    margin: 0;
+    margin-top: 30px;
+    border-left: 5px solid var(--mercury);
+    background: var(--alabaster);
+    padding: 20px;
+
+    blockquote {
+      margin: 10px 0;
+    }
+  }
+
+  a {
+    color: black;
+    text-decoration: underline solid black 1px;
+    text-underline-offset: 2px;
+  }
+
+  pre {
+    font-family: 'PragmataPro Mono PW';
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: var(--aqua-haze);
+    margin-top: 30px;
+    border: 1px solid var(--mercury);
+    border-radius: 3px;
+    word-wrap: normal;
+
+    > code {
+      font-family: 'PragmataPro Mono PW';
+    }
+  }
+
+  h1 {
+    margin-top: 56px;
+    font-size: 28px;
+
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+
+    @include mixin.mobile {
+      font-size: 22px;
+    }
+  }
+
+  h2 {
+    margin-top: 30px;
+
+    @include mixin.mobile {
+      font-size: 20px;
+    }
+
+    font-size: 24px;
+
+    line-height: 1.22;
+    letter-spacing: -0.012em;
+  }
+
+  hr {
+    display: block;
+    border: 0;
+    height: 0;
+    text-align: center;
+    overflow: visible;
+    margin-top: 52px;
+    margin-bottom: 42px;
+    box-sizing: content-box;
+
+    &:before {
+      display: inline-block;
+      color: rgba(0, 0, 0, 0.68);
+      content: '...';
+      margin-left: 0.6em;
+      position: relative;
+      top: -34px;
+      font-style: italic;
+      font-size: 30px;
+      letter-spacing: 0.55em;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  > p,
+  ul,
+  ol {
+    margin-top: 30px;
+    margin-bottom: 0;
+    &:global {
+      &.h1 {
+        margin-top: 8px;
+      }
+      &.h2,
+      &.h3,
+      &.h4,
+      &.h5,
+      &.h6 {
+        margin-top: 6px;
+      }
+    }
+  }
+
+  ul,
+  ol {
+    padding-left: 20px;
+    &:global {
+      &.p {
+        margin-top: 2px;
+      }
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      margin-bottom: 10px;
+    }
+    > li {
+      li {
+        padding-left: 20px;
+      }
+      hyphens: auto;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    li:before {
+      content: '–';
+      padding-right: 10px;
+    }
+  }
+
+  p,
+  blockquote,
+  ul,
+  ol {
+    hyphens: auto;
+    text-align: justify;
+
+    code {
+      font-family: PragmataPro Mono PW;
+      background-color: var(--aqua-haze);
+      border: 1px solid var(--mercury);
+      border-radius: 3px;
+      font-variant-ligatures: none;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      word-break: normal;
+      font-size: 70%;
+      padding: 4px;
+    }
+  }
+
+  img {
+    //border-radius: 3px;
+    width: 100%;
+    max-height: 1000px;
+  }
+
+  .emoji {
+    width: auto;
+    display: inline-flex;
+    height: 1.6em;
+    position: absolute;
+    &::after {
+      width: 10px;
+    }
+  }
+}

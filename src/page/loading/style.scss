@@ -1,0 +1,21 @@
+.loading {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+
+  img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    image-rendering: pixelated;
+    animation: spin 4s linear infinite;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

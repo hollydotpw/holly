@@ -1,0 +1,8 @@
+/.*
+/*.json
+!.gitignore
+!.github
+!package.json
+
+dist
+node_modules
