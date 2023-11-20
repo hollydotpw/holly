@@ -1,7 +1,7 @@
 import categories from 'constant/data/category';
 import authors from 'constant/data/author';
 
-import slugify from 'purr/slugify';
+import slugify from 'pekoo/slugify';
 
 export default function normalizeSummary(story: StoryRaw): StorySummary {
   return {

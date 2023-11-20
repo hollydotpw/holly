@@ -3,7 +3,7 @@ import {
   serveSinglePageApp,
 } from '@cloudflare/kv-asset-handler';
 
-import convertListToMap from 'purr/convert-list-to-map';
+import convertListToMap from 'pekoo/convert-list-to-map';
 
 import StoryHead from 'component/head/page/story';
 import GlobalHead from 'component/head/common/global';

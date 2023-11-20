@@ -1,0 +1,21 @@
+name: ci
+
+on:
+  push:
+    branches:    
+      - master 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+    - name: Install Dependencies
+      run: bun install
+    - name: Install X
+      run: mkdir /tmp/install-x && cd /tmp/install-x && git clone https://github.com/hollydotpw/x.git && cd x && bun install && bun generate-static-files && bun link
+    - name: Build project
+      run: x prod

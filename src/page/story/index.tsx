@@ -9,7 +9,7 @@ import Head from 'component/head';
 import NotFound from 'page/notfound';
 import Loading from 'page/loading';
 
-import { agoBigword } from 'purr/ago';
+import { ago } from 'pekoo/ago';
 import Label from 'component/label';
 import Body from './body';
 import Footer from './footer';
@@ -53,7 +53,7 @@ export default function StoryPage({ params }: StoryPageProps) {
                 className={style.timestamp}
                 dateTime={new Date(story.timestamp).toISOString()}
               >
-                {agoBigword(story.timestamp)}
+                {ago(new Date(story.timestamp), new Date())}
               </time>
             </div>
             <div className={style.labels}>

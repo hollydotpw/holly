@@ -1,6 +1,4 @@
-// import 'unfetch/polyfill';
-
-import { get } from 'purr/fetch';
+import get from 'helper/get';
 import normalizeSummary from './normalize-summary';
 
 export default async function list(

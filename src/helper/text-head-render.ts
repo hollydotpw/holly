@@ -1,4 +1,4 @@
-import escapeHtml from 'purr/escape-html';
+import escapeHtml from 'pekoo/escape-html';
 
 export default function textHeadRender(element: JSX.Element): string {
   if (Array.isArray(element)) {

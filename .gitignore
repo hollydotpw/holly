@@ -1,6 +1,7 @@
 /.*
 /*.json
 !.gitignore
+!.github
 !package.json
 
 dist

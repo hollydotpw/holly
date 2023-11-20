@@ -1,4 +1,4 @@
-import { get } from 'purr/fetch';
+import get from 'helper/get';
 import parseSummary from './parse-summary';
 import normalizeSummary from './normalize-summary';
 
@@ -13,7 +13,7 @@ export default async function getBody(
     'text',
     abortController,
   );
-  
+
   const summary = normalizeSummary(parseSummary(body));
 
   const showSecrets = window.location.hash === SHOW_SECRETS_HASHBANG;

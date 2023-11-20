@@ -3,7 +3,7 @@ import { useEffect, useCallback, useContext } from 'preact/hooks';
 import { ViewContext } from 'hook/view/provider';
 import * as action from 'hook/view/action';
 
-import deepEqual from 'purr/deep-equal';
+import deepEqual from 'pekoo/deep-equal';
 import useAbort from 'hook/abort';
 import { Settings, State, ViewContextValue } from './type';
 import { FALLBACK_STATE } from './reducer';

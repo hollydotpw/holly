@@ -1,4 +1,4 @@
-import sel from 'purr/sel';
+import sel from 'pekoo/sel';
 import style from './style.scss';
 
 type LabelProps = {

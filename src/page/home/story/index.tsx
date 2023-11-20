@@ -1,7 +1,7 @@
 import Label from 'component/label';
 import Link from 'component/link';
 import { story as storyCannonical } from 'helper/cannonical';
-import { agoBigword } from 'purr/ago';
+import { ago } from 'pekoo/ago';
 
 import style from './style.scss';
 
@@ -10,7 +10,9 @@ type StoryProps = {
 };
 
 export default function Story({ data }: StoryProps) {
-  const { thumbnail, title, excerpt, timestamp, category, author, tags } = data;
+  const {
+    thumbnail, title, excerpt, timestamp, category, author, tags,
+  } = data;
 
   return (
     <article className={style.story}>
@@ -30,7 +32,7 @@ export default function Story({ data }: StoryProps) {
               className={style.timestamp}
               dateTime={new Date(timestamp).toISOString()}
             >
-              {agoBigword(timestamp)}
+              {ago(new Date(timestamp), new Date())}
             </time>
           </div>
           <div className={style.labels}>

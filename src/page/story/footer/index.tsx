@@ -1,6 +1,6 @@
 import { useCallback } from 'preact/hooks';
-import openInWindow from 'purr/open-in-windows';
-import createShare from 'purr/share';
+import openInWindow from 'helper/open-in-window';
+import createShareLinks from 'helper/create-share-links';
 import style from './style.scss';
 
 type FooterProps = {
@@ -8,13 +8,13 @@ type FooterProps = {
 };
 
 export default function Footer({ story }: FooterProps) {
-  const social = createShare(window.location.href);
+  const social = createShareLinks(window.location.href);
   const email = `mailto:?subject=${encodeURIComponent(
     `Look at this cool story: ${story.title}`,
   )}&body=${encodeURIComponent(window.location.href)}`;
 
-  const copyLink = useCallback(() => {
-    navigator.clipboard.writeText(window.location.href);
+  const copyLink = useCallback(async () => {
+    await navigator.clipboard.writeText(window.location.href);
     alert('Link copied!');
   }, []);
 

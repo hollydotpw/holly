@@ -1,8 +1,8 @@
 compatibility_date = "2021-12-14"
 name = "holly"
-workers_dev = false
 route = "holly.pw/*"
 send_metrics = false
+workers_dev = false
 main = "./dist/holly-worker/entry.js"
 
 [site]
