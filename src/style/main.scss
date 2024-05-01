@@ -69,3 +69,30 @@ img {
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--boulder);
 }
+
+/*
+p:nth-child(6n+1)::selection {
+    background: rgba(255,150,155,.25)
+}
+
+p:nth-child(6n+2)::selection {
+    background: rgba(255,190,129,.25)
+}
+
+p:nth-child(6n+3)::selection {
+    background: rgba(250,244,123,.25)
+}
+
+p:nth-child(6n+4)::selection {
+    background: rgba(204,250,158,.25)
+}
+
+p:nth-child(6n+5)::selection {
+    background: rgba(157,236,255,.25)
+}
+
+p:nth-child(6n+6)::selection {
+    background: rgba(212,169,255,.25)
+}
+
+*/

@@ -10,15 +10,13 @@ const articlePath = './static/data/article';
 const articleFiles = readdirSync(articlePath);
 
 const out = articleFiles
-  .map((articleFile) =>
-    normalizeSummary(
-      parseSummary(readFileSync(resolve(articlePath, articleFile), 'utf-8')),
-    ),
-  )
+  .map((articleFile) => normalizeSummary(
+    parseSummary(readFileSync(resolve(articlePath, articleFile), 'utf-8')),
+  ))
   .filter((article) => !article.tags?.includes('section'))
   .sort((articleA, articleB) => articleB.id - articleA.id);
 
 writeFileSync('./static/data/article.json', JSON.stringify(out));
 writeFileSync('./static/data/rss-feed.xml', generateRssFeed(out));
 
-console.log('Static files generated!')
+console.log('Static files generated!');

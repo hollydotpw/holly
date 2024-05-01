@@ -24,5 +24,6 @@ x dev
 Run the following command to build and deploy the project:
 ```bash
 x prod
-wrangler deploy
+cp ./dist/holly-worker/entry.js ./dist/holly-web/_worker.js
+bunx wrangler pages deploy ./dist/holly-web --no-bundle --commit-dirty --project-name holly
 ```

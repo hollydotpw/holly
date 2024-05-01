@@ -1,8 +1,3 @@
-import {
-  getAssetFromKV,
-  serveSinglePageApp,
-} from '@cloudflare/kv-asset-handler';
-
 import convertListToMap from 'pekoo/convert-list-to-map';
 
 import StoryHead from 'component/head/page/story';
@@ -18,65 +13,63 @@ import rawArticles from '../static/data/article.json';
 
 const slug2story = convertListToMap(rawArticles.map(normalizeSummary), 'slug');
 
-type FetchEvent = {
-  readonly request: Request;
-  readonly waitUntil: () => void;
-};
+interface Env {
+  ASSETS: {
+    fetch(request: Request): Promise<Response>;
+  };
+}
 
-async function handleEvent(event: FetchEvent) {
-  const url = new URL(event.request.url);
+async function handleRequest(request: Request, env: Env): Promise<Response> {
+  const url = new URL(request.url);
 
-  if (event.request.url.endsWith('.map')) {
+  if (request.url.endsWith('.map')) {
     return new Response('fuck off', { status: 404 });
   }
 
-  try {
-    const response = await getAssetFromKV(event, {
-      mapRequestToAsset: serveSinglePageApp,
-    });
+  const response = await env.ASSETS.fetch(request);
 
-    if (url.pathname.startsWith('/$/')) {
-      const html = await response.text();
-      const story = slug2story[url.pathname.replace('/$/', '')];
+  if (url.pathname.startsWith('/$/')) {
+    const html = await response.text();
+    const story = slug2story[url.pathname.replace('/$/', '')];
 
-      return new Response(
-        injectHead(
-          html,
-          textHeadRender(
-            <>
-              <GlobalHead />
-              {story ? <StoryHead story={story} /> : <NotFoundHead />}
-            </>,
-          ),
+    return new Response(
+      injectHead(
+        html,
+        textHeadRender(
+          <>
+            <GlobalHead />
+            {story
+              ? <StoryHead story={story} />
+              : <NotFoundHead />}
+          </>,
         ),
-        response,
-      );
-    }
-    if (response.headers.get('content-type').includes('text/html')) {
-      const html = await response.text();
-      return new Response(
-        injectHead(
-          html,
-          textHeadRender(
-            <>
-              <GlobalHead />
-              <HomeHead />
-            </>,
-          ),
-        ),
-        response,
-      );
-    }
-
-    return response;
-  } catch (e) {
-    return new Response('not found', { status: 404 });
+      ),
+      response,
+    );
   }
+
+  if (response.headers.get('content-type')?.includes('text/html')) {
+    const html = await response.text();
+
+    return new Response(
+      injectHead(
+        html,
+        textHeadRender(
+          <>
+            <GlobalHead />
+            <HomeHead />
+          </>,
+        ),
+      ),
+      response,
+    );
+  }
+
+  return response;
 }
 
-// eslint-disable-next-line no-restricted-globals
-addEventListener('fetch', (event) => {
-  // eslint-disable-next-line
-  // @ts-ignore
-  event.respondWith(handleEvent(event));
-});
+export default {
+  fetch(request: Request, env: Env): Promise<Response> {
+    return handleRequest(request, env);
+  },
+};
